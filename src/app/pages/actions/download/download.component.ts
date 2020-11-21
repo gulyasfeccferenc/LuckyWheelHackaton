@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Folder} from '../../../interfaces/folder';
 import {TalkGibberishStoreService} from '../../../services/talk-gibberish-store.service';
+import {ProgressService} from '../../../services/progress.service';
 
 @Component({
   selector: 'app-download',
@@ -20,9 +21,10 @@ export class DownloadComponent implements OnInit {
     'TWITTER ACCOUNTS'
   ];
   folders: Folder[] = [];
-  constructor(private talkGibberish: TalkGibberishStoreService) { }
+  constructor(private talkGibberish: TalkGibberishStoreService, private progress: ProgressService) { }
 
   ngOnInit(): void {
+    this.progress.advanceLevel();
     const folderNumber = Math.round(Math.random() * 10 + 10);
     [...Array(folderNumber)].forEach((elem, index) => {
       this.folders.push({

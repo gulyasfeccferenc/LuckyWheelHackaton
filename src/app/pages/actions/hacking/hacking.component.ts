@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ProgressService} from '../../../services/progress.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TalkGibberishStoreService} from '../../../services/talk-gibberish-store.service';
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   templateUrl: './hacking.component.html',
   styleUrls: ['./hacking.component.scss']
 })
-export class HackingComponent implements OnInit, OnDestroy {
+export class HackingComponent implements OnInit {
   hitCount = 0;
   hitKeys = [];
   hackingLines: string;
@@ -50,27 +50,22 @@ export class HackingComponent implements OnInit, OnDestroy {
    */
   ngOnInit(): void {
     this.progressService.progress = 0;
-    document.addEventListener('keypress', (ev) => {
-      this.hitCount++;
-      this.hitKeys.push(ev.key);
-      // this.hitKeys.push
-      if (this.hitCount % 10 === 0) {
-        this.generateCode();
-        this.progressService.progress = this.progressService.progress + (100);
-        if (this.progressService.progress >= 100) {
-          this.modalService.open(this.successModal);
-          this.talkGibberishStore.addGibberish(this.hitKeys);
-          this.progressService.progress = 0;
-        }
-      }
-    });
   }
 
-  /**
-   * Lifecycle method
-   */
-  ngOnDestroy(): void {
-    //
+  @HostListener('document:keypress', ['$event'])
+  keyEventListener(ev: KeyboardEvent): void {
+    const levelModifier = this.progressService.getModifier();
+    this.hitCount++;
+    this.hitKeys.push(ev.key);
+    if (this.hitCount % 10 === 0) {
+      this.generateCode();
+      this.progressService.progress = this.progressService.progress + Math.round(Math.random() * levelModifier);
+      if (this.progressService.progress >= 100) {
+        this.modalService.open(this.successModal);
+        this.talkGibberishStore.addGibberish(this.hitKeys);
+        this.progressService.progress = 0;
+      }
+    }
   }
 
   /**

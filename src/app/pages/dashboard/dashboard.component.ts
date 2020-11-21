@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Building} from '../../interfaces/building';
 import {FacilityService} from '../../services/facility.service';
+import {ProgressService} from '../../services/progress.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +11,11 @@ import {FacilityService} from '../../services/facility.service';
 export class DashboardComponent implements OnInit {
   availableBuildings: Building[];
 
-  constructor(private facilityService: FacilityService) {}
+  constructor(private facilityService: FacilityService,
+              private progress: ProgressService) {}
 
   ngOnInit(): void {
-    this.availableBuildings = this.facilityService.getNextBuilding();
-    this.facilityService.levelChangeObserver.subscribe((nextLevel) => {
-      this.availableBuildings = this.facilityService.getNextBuilding();
-    });
+    this.availableBuildings = this.facilityService.getNextBuilding(this.progress.playersLevel);
   }
 
 }
