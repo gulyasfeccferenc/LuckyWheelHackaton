@@ -2,6 +2,7 @@ import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core
 import {ProgressService} from '../../../services/progress.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {TalkGibberishStoreService} from '../../../services/talk-gibberish-store.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-hacking',
@@ -41,6 +42,7 @@ export class HackingComponent implements OnInit, OnDestroy {
   constructor(private elRef: ElementRef,
               private progressService: ProgressService,
               private talkGibberishStore: TalkGibberishStoreService,
+              private router: Router,
               private modalService: NgbModal) { }
 
   /**
@@ -54,7 +56,7 @@ export class HackingComponent implements OnInit, OnDestroy {
       // this.hitKeys.push
       if (this.hitCount % 10 === 0) {
         this.generateCode();
-        this.progressService.progress = this.progressService.progress + (10);
+        this.progressService.progress = this.progressService.progress + (100);
         if (this.progressService.progress >= 100) {
           this.modalService.open(this.successModal);
           this.talkGibberishStore.addGibberish(this.hitKeys);
@@ -88,4 +90,8 @@ export class HackingComponent implements OnInit, OnDestroy {
     this.elRef.nativeElement.scroll(0, this.elRef.nativeElement.scrollHeight);
   }
 
+  downloadClicked(): void {
+    this.modalService.dismissAll();
+    this.router.navigate(['download'], {skipLocationChange: true});
+  }
 }

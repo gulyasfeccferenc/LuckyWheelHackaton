@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Building} from '../interfaces/building';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -67,7 +68,23 @@ export class FacilityService {
       description: 'This evil corp want to let everybody know your visited pages (even from private mode!). You can\'t let them!',
     }
   ];
+  // tslint:disable-next-line:variable-name
+  private _playersLevel = 1;
+  levelChangeObserver: Subject<number> = new Subject<number>();
 
   constructor() { }
+
+  getNextBuilding(): Building[] {
+    return this.allFacilities.filter(x => x.level === this.playersLevel);
+  }
+
+  get playersLevel(): number {
+    return this._playersLevel;
+  }
+
+  set playersLevel(level: number) {
+    this._playersLevel = level;
+    this.levelChangeObserver.next(this._playersLevel);
+  }
 
 }

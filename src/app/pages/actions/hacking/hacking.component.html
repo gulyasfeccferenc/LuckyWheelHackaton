@@ -13,6 +13,6 @@
     Download every compromising file
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" [routerLink]="['download']">DOWNLOAD DATA</button>
+    <button type="button" class="btn btn-outline-dark" (click)="downloadClicked()" [routerLink]="['download']" skipLocationChange>DOWNLOAD DATA</button>
   </div>
 </ng-template>

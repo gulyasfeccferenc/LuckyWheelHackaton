@@ -13,14 +13,10 @@ export class DashboardComponent implements OnInit {
   constructor(private facilityService: FacilityService) {}
 
   ngOnInit(): void {
-    this.availableBuildings = [
-      {
-        id: '1',
-        level: 1,
-        name: 'Babbling Inc',
-        description: 'This evil corp makes people fat. You have to stop them!'
-      }
-    ];
+    this.availableBuildings = this.facilityService.getNextBuilding();
+    this.facilityService.levelChangeObserver.subscribe((nextLevel) => {
+      this.availableBuildings = this.facilityService.getNextBuilding();
+    });
   }
 
 }
