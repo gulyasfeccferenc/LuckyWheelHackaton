@@ -26,7 +26,7 @@ export class DownloadComponent implements OnInit {
     const folderNumber = Math.round(Math.random() * 10 + 10);
     [...Array(folderNumber)].forEach((elem, index) => {
       this.folders.push({
-        id: this.folderNames[index % 9] + 'kiskacsa' + index.toString() + Date.now().toString(),
+        id: this.folderNames[index % 9] + '_' + index.toString() + Date.now().toString(),
         name: this.folderNames[index % 9],
         link: false,
       });

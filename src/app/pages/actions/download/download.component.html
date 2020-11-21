@@ -1,2 +1,5 @@
+<div>
+  <button [routerLink]="['dashboard']" skipLocationChange>Back</button>
+</div>
 <button *ngFor="let elem of folders" type="button" class="folder-btn" (click)="downloadFolder(elem.id)">{{ elem.name }}</button>
 

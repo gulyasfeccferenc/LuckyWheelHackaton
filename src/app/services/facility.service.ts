@@ -28,38 +28,14 @@ export class FacilityService {
     {
       id: 'zz',
       level: 4,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
+      name: 'Notflix',
+      description: 'This evil corp want to make binge-watching extinct!'
     },
     {
       id: '123',
       level: 5,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
-    },
-    {
-      id: 'stringx',
-      level: 6,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
-    },
-    {
-      id: '7even',
-      level: 7,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
-    },
-    {
-      id: 'THU',
-      level: 8,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
-    },
-    {
-      id: 'trou',
-      level: 9,
-      name: 'Babbling Inc',
-      description: 'This evil corp makes people fat. You have to stop them!'
+      name: 'Hellweiken',
+      description: 'This evil corp wants to wipe craft beers off the face of Earth. You have to stop them!'
     },
     {
       id: 'xds',

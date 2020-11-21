@@ -4,7 +4,7 @@ import {Building} from '../../interfaces/building';
 @Component({
   selector: 'app-building',
   templateUrl: './building.component.html',
-  styleUrls: ['./building.component.css']
+  styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent implements OnInit {
   @Input() building: Building;
