@@ -2,6 +2,14 @@
   <div class="container-header">
     {{ title }}
   </div>
+  <div class="progress" *ngIf="progress > 10">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"
+         role="progressbar"
+         aria-valuenow="75"
+         aria-valuemin="0"
+         aria-valuemax="100"
+         [style]="'width: '+ progress + '%'"></div>
+  </div>
   <div class="row">
     <router-outlet></router-outlet>
   </div>

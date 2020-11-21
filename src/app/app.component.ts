@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Building} from './interfaces/building';
+import {ProgressService} from './services/progress.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,16 @@ import {Building} from './interfaces/building';
 })
 export class AppComponent implements OnInit{
   title = 'LuckyWheelHackaton';
+  progress: number;
+
+  constructor(private progressService: ProgressService) {}
 
   /**
    * Lifecycle method
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.progressService.progressObserver.subscribe((newValue) => {
+      this.progress = newValue;
+    });
+  }
 }

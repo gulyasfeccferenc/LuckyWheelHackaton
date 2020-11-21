@@ -7,13 +7,15 @@ import { BuildingComponent } from './components/building/building.component';
 import { HackingComponent } from './pages/actions/hacking/hacking.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
+import { DownloadComponent } from './pages/actions/download/download.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuildingComponent,
     HackingComponent,
-    DashboardComponent
+    DashboardComponent,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,

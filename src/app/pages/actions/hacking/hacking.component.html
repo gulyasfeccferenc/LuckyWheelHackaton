@@ -1,2 +1,18 @@
-<p>hacking works!</p>
+<p>Hacking started! Start typing like crazy!</p>
 <h1>{{ hitCount }}</h1>
+<pre>{{ hackingLines }}</pre>
+
+<ng-template #hackingSuccess let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">HACKING SUCCESSFUL</h4>
+    <button type="button" class="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Download every compromising file
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" [routerLink]="['download']">DOWNLOAD DATA</button>
+  </div>
+</ng-template>

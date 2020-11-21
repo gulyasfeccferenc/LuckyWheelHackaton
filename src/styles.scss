@@ -25,4 +25,23 @@ body {
       border: 1px solid silver;
     }
   }
+
+  .modal {
+    &-header {
+      font-size: 16px;
+      color: #fff;
+      background: linear-gradient(to right, navy, #7da9c6);
+      border: 1px solid silver;
+      padding: 0 0 0 16px;
+
+      .close {
+        padding: 4px 8px;
+        margin: 2px;
+        background: silver;
+        border: 2px solid gray;
+        opacity: 1;
+        box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+      }
+    }
+  }
 }
