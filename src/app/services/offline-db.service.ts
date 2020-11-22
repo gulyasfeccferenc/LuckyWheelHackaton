@@ -16,6 +16,7 @@ export class OfflineDBService {
     this.db.version(this.DBVersion).stores({
       generatedText: 'filename,content'
     });
+    this.db.generatedText?.clear();
   }
 
   /**
