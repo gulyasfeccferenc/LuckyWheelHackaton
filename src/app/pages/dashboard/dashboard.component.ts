@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
               private progress: ProgressService) {}
 
   ngOnInit(): void {
-    this.availableBuildings = this.facilityService.getNextBuilding(this.progress.playersLevel);
+    this.availableBuildings = this.facilityService.getAvailableBuildings(this.progress.playersLevel);
   }
 
 }
