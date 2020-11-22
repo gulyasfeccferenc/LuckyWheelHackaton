@@ -63,6 +63,16 @@ export class FacilityService {
   }
 
   hackFacility(level: number): void {
-    (this.allFacilities.filter(x => x.level === level) as unknown as Building).hacked = true;
+    console.info('>>> Facility hacked');
+    this.getBuildingWithLevel(level)[0].hacked = true;
+  }
+
+  compromiseFacility(level: number): void {
+    console.info('>>> Facility compromised');
+    this.getBuildingWithLevel(level)[0].compromised = true;
+  }
+
+  getBuildingWithLevel(level: number): Building[] {
+    return this.allFacilities.filter(x => x.level === level);
   }
 }

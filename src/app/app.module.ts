@@ -8,6 +8,7 @@ import { HackingComponent } from './pages/actions/hacking/hacking.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
 import { DownloadComponent } from './pages/actions/download/download.component';
+import { CompromisingComponent } from './pages/actions/compromising/compromising.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DownloadComponent } from './pages/actions/download/download.component';
     BuildingComponent,
     HackingComponent,
     DashboardComponent,
-    DownloadComponent
+    DownloadComponent,
+    CompromisingComponent
   ],
   imports: [
     BrowserModule,

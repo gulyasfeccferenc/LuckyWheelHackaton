@@ -3,6 +3,6 @@
   <strong>{{building.name}}</strong>
   <p>{{building.description}}</p>
   <button type="button" class="btn btn-dark" [routerLink]="['hacking']" skipLocationChange [disabled]="building.hacked">Let's hack</button>
-  <button type="button" class="btn btn-dark" [routerLink]="['hacking']" skipLocationChange *ngIf="building.hacked && !building.compromised">Reveal their secret!</button>
+  <button type="button" class="btn btn-dark" [routerLink]="['compromising']" skipLocationChange *ngIf="building.hacked && !building.compromised">Reveal their secret!</button>
 </div>
 

@@ -29,8 +29,8 @@ export class DownloadComponent implements OnInit {
               private facilityService: FacilityService) { }
 
   ngOnInit(): void {
-    this.progress.advanceLevel();
     this.facilityService.hackFacility(this.progress.playersLevel);
+    this.progress.advanceLevel();
     this.populateFolder();
     this.saveGeneratedContent();
   }
